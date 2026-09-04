@@ -3,228 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cổng Tra Cứu Hoạt Động Đoàn Thanh Niên</title>
-  
-  <!-- Tailwind CSS -->
+  <title>Tra Cứu Điểm Rèn Luyện - HUIT</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
-    :root {
-      --doan-blue: #0056A6;
-      --doan-red: #D32F2F;
-      --doan-yellow: #FFD700;
-    }
-    body { 
-      font-family: 'Montserrat', sans-serif; 
-      background-color: #f4f7f9;
-      background-image: radial-gradient(#0056a614 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
-    
-    /* Animations */
-    .fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+    body { font-family: 'Montserrat', sans-serif; background-color: #f4f7f9; }
+    .bg-gradient-huit { background: linear-gradient(135deg, #0056A6 0%, #003d7a 100%); }
+    .fade-in-up { animation: fadeInUp 0.4s ease-out forwards; }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
-    .pulse-glow {
-      animation: pulseGlow 2s infinite alternate;
-    }
-    @keyframes pulseGlow {
-      from { box-shadow: 0 0 10px rgba(0, 86, 166, 0.3); }
-      to { box-shadow: 0 0 20px rgba(0, 86, 166, 0.7); }
-    }
-
-    /* Custom Styles */
-    .bg-gradient-doan { background: linear-gradient(135deg, #0056A6 0%, #003d7a 100%); }
-    .text-doan { color: var(--doan-blue); }
-    .border-doan { border-color: var(--doan-blue); }
-    
-    /* Table hover */
-    tbody tr { transition: all 0.2s; }
-    tbody tr:hover { background-color: #f0f7ff !important; transform: scale(1.005); }
-    
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb { background: #0056A6; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #003d7a; }
   </style>
 </head>
 <body class="text-slate-800 min-h-screen flex flex-col">
 
-  <!-- HEADER -->
-  <header class="bg-gradient-doan text-white shadow-xl relative overflow-hidden border-b-4" style="border-bottom-color: var(--doan-red);">
-    <!-- Huy hiệu chìm -->
-    <i class="fa-solid fa-star absolute -right-10 -bottom-10 text-[200px] text-white/5 rotate-12"></i>
-    
-    <div class="max-w-6xl mx-auto px-4 py-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-5 text-center md:text-left">
-        <div class="w-16 h-16 rounded-full border-2 border-yellow-400 bg-white/10 flex items-center justify-center backdrop-blur-sm shadow-lg">
-          <i class="fa-solid fa-star text-3xl text-yellow-400"></i>
-        </div>
-        <div>
-          <h2 class="text-sm md:text-base font-bold text-yellow-400 uppercase tracking-widest mb-1">Đoàn TNCS Hồ Chí Minh Trường Đại học Công Thương TP.HCM </h2>
-          <h1 class="font-extrabold text-2xl md:text-3xl tracking-tight uppercase drop-shadow-md">Cổng Tra Cứu Điểm Rèn Luyện</h1>
-          <p class="text-blue-100 text-sm mt-1 font-medium"><i class="fa-solid fa-fire text-orange-400 mr-1"></i> Khát vọng - Tiên phong - Bản lĩnh - Sáng tạo</p>
-        </div>
+  <header class="bg-gradient-huit text-white shadow-lg border-b-4 border-red-600">
+    <div class="max-w-5xl mx-auto px-4 py-6 flex items-center gap-4">
+      <div class="w-12 h-12 rounded-full border-2 border-yellow-400 bg-white/10 flex items-center justify-center">
+        <i class="fa-solid fa-graduation-cap text-2xl text-yellow-400"></i>
       </div>
-      
-      <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-sm font-semibold flex items-center gap-2">
-        <i class="fa-solid fa-database text-yellow-400"></i> Dữ liệu tự động đồng bộ
+      <div>
+        <h2 class="text-xs font-bold text-yellow-400 uppercase tracking-widest">Trường Đại học Công Thương TP.HCM (HUIT)</h2>
+        <h1 class="font-extrabold text-xl md:text-2xl uppercase">Tra Cứu Hoạt Động & Điểm Rèn Luyện</h1>
       </div>
     </div>
   </header>
 
-  <!-- MAIN SECTION -->
-  <main class="max-w-5xl mx-auto px-4 py-10 w-full flex-grow">
+  <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-grow">
     
-    <!-- SEARCH BOX -->
-    <div class="bg-white rounded-3xl shadow-xl border border-blue-50 p-6 md:p-8 mb-10 transform transition-all hover:shadow-2xl">
-      <h2 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
-        <i class="fa-solid fa-magnifying-glass text-doan"></i> Tìm kiếm thông tin
+    <!-- Ô tìm kiếm -->
+    <div class="bg-white rounded-2xl shadow-md p-6 mb-8 border border-slate-100">
+      <h2 class="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
+        <i class="fa-solid fa-magnifying-glass text-blue-600"></i> Tra cứu thông tin cá nhân
       </h2>
-      <p class="text-sm text-slate-500 mb-6 font-medium">Nhập Mã số sinh viên (MSSV) hoặc Họ và tên để kiểm tra lịch sử tham gia phong trào.</p>
+      <p class="text-xs text-slate-500 mb-4">Nhập Mã số sinh viên hoặc Họ tên để xem chi tiết danh sách kế hoạch tham gia.</p>
       
-      <div class="flex flex-col sm:flex-row gap-4">
-        <div class="relative flex-1 group">
-          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <i class="fa-regular fa-id-card text-slate-400 group-focus-within:text-doan transition-colors"></i>
-          </div>
-          <input 
-            type="text" 
-            id="searchInput"
-            placeholder="Ví dụ: 25LDU20002 hoặc Nguyễn Văn A..." 
-            class="w-full pl-12 pr-4 py-4 bg-slate-50 border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-blue-600 focus:bg-white focus:ring-4 focus:ring-blue-600/10 font-medium text-slate-800 transition-all text-lg"
-            onkeypress="if(event.key === 'Enter') handleSearch()"
-          >
-        </div>
-        <button 
-          id="searchBtn"
-          onclick="handleSearch()"
-          class="bg-gradient-doan text-white font-bold px-10 py-4 rounded-2xl transition-all shadow-lg hover:shadow-blue-900/30 flex items-center justify-center gap-3 active:scale-95 pulse-glow"
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input 
+          type="text" 
+          id="searchInput"
+          placeholder="Nhập MSSV (VD: 2008220017)..." 
+          class="flex-1 px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-blue-600 font-medium text-slate-800"
+          onkeypress="if(event.key === 'Enter') handleSearch()"
         >
-          <i class="fa-solid fa-paper-plane"></i>
-          <span>Tra Cứu</span>
+        <button 
+          onclick="handleSearch()"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition shadow"
+        >
+          Tra Cứu
         </button>
       </div>
     </div>
 
-    <!-- LOADING SPINNER -->
-    <div id="loadingArea" class="hidden flex flex-col items-center justify-center py-10 fade-in-up">
-      <div class="w-12 h-12 border-4 border-blue-200 border-t-doan rounded-full animate-spin mb-4"></div>
-      <p class="text-doan font-semibold animate-pulse">Đang tìm kiếm dữ liệu Đoàn viên...</p>
+    <!-- Loading -->
+    <div id="loadingArea" class="hidden text-center py-8">
+      <div class="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-2"></div>
+      <p class="text-blue-600 text-sm font-semibold">Đang tải dữ liệu...</p>
     </div>
 
-    <!-- KẾT QUẢ TRA CỨU -->
-    <div id="resultArea" class="hidden space-y-8 fade-in-up">
+    <!-- Kết quả tra cứu -->
+    <div id="resultArea" class="hidden space-y-6 fade-in-up">
       
-      <!-- USER INFO CARD -->
-      <div class="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden relative">
-        <div class="absolute top-0 left-0 w-2 h-full bg-doan"></div>
-        <div class="p-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          
-          <div class="flex items-center gap-6">
-            <div class="w-20 h-20 rounded-full bg-blue-50 border-2 border-blue-100 flex items-center justify-center text-doan text-3xl shadow-inner">
-              <i class="fa-solid fa-user-graduate"></i>
-            </div>
-            <div>
-              <div class="inline-block px-3 py-1 bg-red-100 text-red-600 text-xs font-bold uppercase tracking-wider rounded-lg mb-2">
-                Đoàn viên / Thanh niên
-              </div>
-              <h3 id="studentName" class="text-3xl font-extrabold text-slate-800 mb-1">---</h3>
-              <div class="flex flex-wrap gap-4 text-sm font-semibold text-slate-500 mt-2">
-                <span class="flex items-center gap-1"><i class="fa-regular fa-id-badge text-slate-400"></i> <span id="studentMSSV">---</span></span>
-                <span class="flex items-center gap-1"><i class="fa-solid fa-users-rectangle text-slate-400"></i> <span id="studentClass">---</span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-gradient-doan px-8 py-5 rounded-2xl shadow-lg text-center min-w-[200px] border-b-4 border-yellow-400 transform hover:-translate-y-1 transition-transform">
-            <span class="text-xs uppercase tracking-widest text-blue-100 font-bold block mb-1">Tổng điểm rèn luyện</span>
-            <div class="text-5xl font-black text-white flex items-center justify-center gap-2">
-              <span id="totalScore" class="text-yellow-400 drop-shadow-md">0</span>
-            </div>
-          </div>
-          
+      <!-- Thông tin sinh viên & Tổng điểm -->
+      <div class="bg-white rounded-2xl shadow-md p-6 border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>
+          <h3 id="studentName" class="text-2xl font-extrabold text-slate-800 mb-1">---</h3>
+          <p class="text-sm font-semibold text-slate-500">MSSV: <span id="studentMSSV" class="text-slate-700">---</span> | Lớp: <span id="studentClass" class="text-slate-700">---</span></p>
+        </div>
+        <div class="bg-blue-50 px-6 py-3 rounded-xl border border-blue-100 text-center min-w-[160px]">
+          <span class="text-[11px] uppercase tracking-wider text-blue-600 font-bold block">Tổng điểm rèn luyện</span>
+          <div class="text-3xl font-black text-blue-900" id="totalScore">0</div>
         </div>
       </div>
 
-      <!-- LỊCH SỬ HOẠT ĐỘNG -->
-      <div class="bg-white rounded-3xl shadow-lg border border-slate-100 overflow-hidden">
-        <div class="bg-slate-50 p-6 border-b border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <h4 class="font-extrabold text-slate-800 text-xl flex items-center gap-3">
-            <div class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-sm">
-              <i class="fa-solid fa-list-check"></i>
-            </div>
-            Chi tiết hoạt động đã tham gia trong học kì vừa qua
-          </h4>
-          <span id="activityCount" class="text-sm font-bold bg-doan text-white px-4 py-1.5 rounded-full shadow-sm">0 hoạt động</span>
-        </div>
+      <!-- BẢNG CHI TIẾT ĐÚNG CHUẨN MẪU TRONG HÌNH -->
+      <div class="bg-white rounded-2xl shadow-md p-6 border border-slate-100">
+        <h4 class="font-bold text-slate-800 text-base mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-list-check text-blue-600"></i> Danh sách kế hoạch / hoạt động đã tham gia
+        </h4>
 
-        <div class="overflow-x-auto p-4">
-          <table class="w-full text-left border-collapse min-w-[700px]">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse border border-slate-200">
             <thead>
-              <tr class="text-slate-500 text-xs font-bold uppercase tracking-wider border-b-2 border-slate-100">
-                <th class="py-4 px-4 w-[15%]">Tháng / Đợt</th>
-                <th class="py-4 px-4 w-[40%]">Tên hoạt động / Nội dung</th>
-                <th class="py-4 px-4 text-center w-[10%]">Điểm Cộng</th>
-                <th class="py-4 px-4 text-center w-[10%]">Điểm Trừ</th>
-                <th class="py-4 px-4 w-[25%]">Ghi chú của BTC</th>
+              <tr class="bg-blue-900 text-white text-xs uppercase tracking-wider">
+                <th class="py-3 px-3 border border-slate-300 text-center w-[10%]">STT</th>
+                <th class="py-3 px-3 border border-slate-300 w-[22%]">Tên khoa/Trung tâm/Phòng ban</th>
+                <th class="py-3 px-3 border border-slate-300 w-[38%]">Tên kế hoạch</th>
+                <th class="py-3 px-3 border border-slate-300 text-center w-[12%]">Tiêu chí</th>
+                <th class="py-3 px-3 border border-slate-300 text-center w-[18%]">Ghi chú</th>
               </tr>
             </thead>
-            <tbody id="detailTableBody" class="text-sm font-medium divide-y divide-slate-50">
-              <!-- JS render data here -->
+            <tbody id="activityTableBody" class="text-sm divide-y divide-slate-200 font-medium">
+              <!-- Render bằng JavaScript -->
             </tbody>
           </table>
         </div>
       </div>
+
     </div>
 
-    <!-- 404 NOT FOUND -->
-    <div id="notFound" class="hidden bg-white rounded-3xl shadow-lg border border-slate-100 p-16 text-center fade-in-up mt-8">
-      <div class="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 text-red-400 text-5xl">
-        <i class="fa-solid fa-face-frown-open"></i>
-      </div>
-      <h3 class="font-extrabold text-slate-800 text-2xl mb-2">Không tìm thấy dữ liệu!</h3>
-      <p class="text-slate-500 font-medium">Hệ thống chưa ghi nhận dữ liệu phong trào của MSSV/Họ tên này.<br>Vui lòng kiểm tra lại lỗi chính tả hoặc liên hệ Ban Tổ Chức.</p>
-      <button onclick="document.getElementById('searchInput').focus()" class="mt-6 font-bold text-doan hover:text-blue-800 underline underline-offset-4">Thử nhập lại</button>
+    <!-- Không tìm thấy -->
+    <div id="notFound" class="hidden bg-white rounded-2xl shadow-md p-8 text-center">
+      <p class="text-slate-500 text-sm font-medium">Không tìm thấy thông tin sinh viên phù hợp.</p>
     </div>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-800 text-slate-400 py-6 text-center text-sm">
-    <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p>&copy; 2026. Thiết kế và Phát triển bởi Đoàn Thanh Niên trường Đại học Công Thương Tp.HCM.</p>
-      <div class="flex gap-4 text-lg">
-        <a href="https://www.facebook.com/dtn.hsv.huit" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
-        <a href="mailto:doanthanhnien@huit.edu.vn" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope"></i></a>
-      </div>
-    </div>
+  <footer class="bg-slate-800 text-slate-400 py-4 text-center text-xs">
+    <p>&copy; 2026 - Trường Đại học Công Thương Thành phố Hồ Chí Minh (HUIT)</p>
   </footer>
 
   <script>
     let mockDatabase = {};
 
-    // Nạp dữ liệu JSON khi load trang
     async function loadData() {
       try {
         const response = await fetch('data.json');
         mockDatabase = await response.json();
       } catch (error) {
-        console.error('Không tìm thấy file data.json:', error);
+        console.error('Lỗi tải file data.json:', error);
       }
     }
     
-    // Tự động focus vào ô tìm kiếm khi mở web
     window.onload = () => {
       loadData();
       document.getElementById('searchInput').focus();
@@ -233,35 +135,25 @@
     function handleSearch() {
       const input = document.getElementById('searchInput');
       const query = input.value.trim().toLowerCase();
-      
-      if (!query) {
-        input.classList.add('ring-2', 'ring-red-500');
-        setTimeout(() => input.classList.remove('ring-2', 'ring-red-500'), 1000);
-        return;
-      }
+      if (!query) return;
 
-      // Ẩn tất cả đi, bật Loading
       document.getElementById('resultArea').classList.add('hidden');
       document.getElementById('notFound').classList.add('hidden');
       const loading = document.getElementById('loadingArea');
       loading.classList.remove('hidden');
 
-      // Giả lập độ trễ mạng xíu để user thấy animation loading cho chuyên nghiệp (0.6s)
       setTimeout(() => {
         loading.classList.add('hidden');
         processSearch(query);
-      }, 600);
+      }, 300);
     }
 
     function processSearch(query) {
       const resultArea = document.getElementById('resultArea');
       const notFound = document.getElementById('notFound');
 
-      // Tìm kiếm (ưu tiên MSSV trước, sau đó tìm theo tên)
-      let student = mockDatabase[query]; // Tìm MSSV chính xác
-      
+      let student = mockDatabase[query];
       if (!student) {
-        // Tìm gần đúng theo MSSV hoặc Tên
         student = Object.values(mockDatabase).find(s => 
           s.ho_ten.toLowerCase().includes(query) || s.mssv.toLowerCase().includes(query)
         );
@@ -269,38 +161,31 @@
 
       if (student) {
         resultArea.classList.remove('hidden');
-
-        // Render Card Thông tin User
         document.getElementById('studentName').innerText = student.ho_ten;
         document.getElementById('studentMSSV').innerText = student.mssv;
         document.getElementById('studentClass').innerText = student.lop || "Chưa cập nhật";
-        document.getElementById('totalScore').innerText = student.tong_diem;
+        document.getElementById('totalScore').innerText = student.tong_diem || 0;
 
-        // Render Table Chi tiết
-        const tableBody = document.getElementById('detailTableBody');
-        tableBody.innerHTML = '';
-        document.getElementById('activityCount').innerText = `${student.chi_tiet.length} hoạt động`;
+        // Render dữ liệu vào bảng chi tiết giống ảnh mẫu
+        const tbody = document.getElementById('activityTableBody');
+        tbody.innerHTML = '';
 
-        student.chi_tiet.forEach(item => {
-          const diemCongHtml = item.diem_cong > 0 
-            ? `<span class="inline-flex items-center justify-center bg-emerald-100 text-emerald-700 font-extrabold px-3 py-1 rounded-lg shadow-sm">+${item.diem_cong}</span>` 
-            : '<span class="text-slate-300">-</span>';
-            
-          const diemTruHtml = item.diem_tru > 0 
-            ? `<span class="inline-flex items-center justify-center bg-red-100 text-red-600 font-extrabold px-3 py-1 rounded-lg shadow-sm">-${item.diem_tru}</span>` 
-            : '<span class="text-slate-300">-</span>';
-
-          const row = document.createElement('tr');
-          row.className = 'hover:bg-slate-50';
-          row.innerHTML = `
-            <td class="py-4 px-4 text-slate-500 font-semibold"><i class="fa-regular fa-calendar text-slate-400 mr-2"></i>${item.nguon}</td>
-            <td class="py-4 px-4 font-bold text-doan leading-tight">${item.hoat_dong}</td>
-            <td class="py-4 px-4 text-center">${diemCongHtml}</td>
-            <td class="py-4 px-4 text-center">${diemTruHtml}</td>
-            <td class="py-4 px-4 text-slate-500 italic text-sm">${item.ghi_chu || ''}</td>
-          `;
-          tableBody.appendChild(row);
-        });
+        if (student.hoạt_động && student.hoạt_động.length > 0) {
+          student.hoạt_động.forEach(act => {
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-slate-50';
+            tr.innerHTML = `
+              <td class="py-3 px-3 border border-slate-200 text-center font-bold text-slate-700">${act.stt}</td>
+              <td class="py-3 px-3 border border-slate-200 text-slate-700">${act.don_vi}</td>
+              <td class="py-3 px-3 border border-slate-200 text-blue-900 font-semibold">${act.ten_ke_hoach}</td>
+              <td class="py-3 px-3 border border-slate-200 text-center font-bold text-slate-800">${act.tieu_chi}</td>
+              <td class="py-3 px-3 border border-slate-200 text-center text-slate-600">${act.ghi_chu}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        } else {
+          tbody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-slate-400">Không có dữ liệu hoạt động chi tiết.</td></tr>`;
+        }
 
       } else {
         notFound.classList.remove('hidden');
