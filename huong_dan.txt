@@ -1,0 +1,15 @@
+HƯỚNG DẪN SỬ DỤNG HỆ THỐNG TRA CỨU ĐIỂM
+-------------------------------------------
+
+1. CHUẨN BỊ MÔI TRƯỜNG PYTHON:
+- Bạn cần cài đặt Python.
+- Mở Terminal/CMD và chạy lệnh: pip install pandas openpyxl
+
+2. CÁCH CHẠY CODE ĐỂ LẤY DỮ LIỆU TỪ EXCEL:
+- Đặt tất cả các file Excel của bạn (vd: Tháng 3.xlsx, Tháng 4 & 5.xlsx...) vào thư mục "du_lieu_excel" (tạo thư mục này nằm cùng cấp với file convert_excel.py).
+- Chạy file script: python convert_excel.py
+- Script sẽ tự động đọc, ghép họ tên, gom điểm từ tất cả các sheet (Lễ 26.3, A.I, Clip,...) và tạo ra file data.json.
+
+3. XEM TRANG WEB:
+- Mở file index.html bằng trình duyệt (Chrome, Edge).
+- Gõ MSSV (vd: 25LDU20002) vào ô tìm kiếm để xem kết quả.
