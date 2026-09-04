@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tra Cứu Điểm Rèn Luyện - HUIT</title>
+  <title>Tra Cứu Điểm Rèn Luyện</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,25 +20,25 @@
 <body class="text-slate-800 min-h-screen flex flex-col">
 
   <header class="bg-gradient-huit text-white shadow-lg border-b-4 border-red-600">
-    <div class="max-w-5xl mx-auto px-4 py-6 flex items-center gap-4">
+    <div class="max-w-4xl mx-auto px-4 py-6 flex items-center gap-4">
       <div class="w-12 h-12 rounded-full border-2 border-yellow-400 bg-white/10 flex items-center justify-center">
         <i class="fa-solid fa-graduation-cap text-2xl text-yellow-400"></i>
       </div>
       <div>
-        <h2 class="text-xs font-bold text-yellow-400 uppercase tracking-widest">Trường Đại học Công Thương TP.HCM (HUIT)</h2>
-        <h1 class="font-extrabold text-xl md:text-2xl uppercase">Tra Cứu Hoạt Động & Điểm Rèn Luyện</h1>
+        <h2 class="text-xs font-bold text-yellow-400 uppercase tracking-widest"></h2>
+        <h1 class="font-extrabold text-xl md:text-2xl uppercase">Tra Cứu Điểm Rèn Luyện</h1>
       </div>
     </div>
   </header>
 
-  <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-grow">
+  <main class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
     
     <!-- Ô tìm kiếm -->
     <div class="bg-white rounded-2xl shadow-md p-6 mb-8 border border-slate-100">
       <h2 class="text-lg font-bold text-slate-800 mb-2 flex items-center gap-2">
-        <i class="fa-solid fa-magnifying-glass text-blue-600"></i> Tra cứu thông tin cá nhân
+        <i class="fa-solid fa-magnifying-glass text-blue-600"></i> Tra cứu thông tin điểm
       </h2>
-      <p class="text-xs text-slate-500 mb-4">Nhập Mã số sinh viên hoặc Họ tên để xem chi tiết danh sách kế hoạch tham gia.</p>
+      <p class="text-xs text-slate-500 mb-4">Nhập Mã số sinh viên hoặc Họ tên để xem chi tiết.</p>
       
       <div class="flex flex-col sm:flex-row gap-3">
         <input 
@@ -57,62 +57,64 @@
       </div>
     </div>
 
-    <!-- Loading -->
+    <!-- Trạng thái Loading -->
     <div id="loadingArea" class="hidden text-center py-8">
       <div class="w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mx-auto mb-2"></div>
-      <p class="text-blue-600 text-sm font-semibold">Đang tải dữ liệu...</p>
+      <p class="text-blue-600 text-sm font-semibold">Đang tìm kiếm...</p>
     </div>
 
-    <!-- Kết quả tra cứu -->
+    <!-- Kết quả -->
     <div id="resultArea" class="hidden space-y-6 fade-in-up">
-      
-      <!-- Thông tin sinh viên & Tổng điểm -->
       <div class="bg-white rounded-2xl shadow-md p-6 border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
         <div>
           <h3 id="studentName" class="text-2xl font-extrabold text-slate-800 mb-1">---</h3>
           <p class="text-sm font-semibold text-slate-500">MSSV: <span id="studentMSSV" class="text-slate-700">---</span> | Lớp: <span id="studentClass" class="text-slate-700">---</span></p>
         </div>
-        <div class="bg-blue-50 px-6 py-3 rounded-xl border border-blue-100 text-center min-w-[160px]">
+        <div class="bg-blue-50 px-6 py-3 rounded-xl border border-blue-100 text-center">
           <span class="text-[11px] uppercase tracking-wider text-blue-600 font-bold block">Tổng điểm rèn luyện</span>
           <div class="text-3xl font-black text-blue-900" id="totalScore">0</div>
         </div>
       </div>
 
-      <!-- BẢNG CHI TIẾT ĐÚNG CHUẨN MẪU TRONG HÌNH -->
       <div class="bg-white rounded-2xl shadow-md p-6 border border-slate-100">
         <h4 class="font-bold text-slate-800 text-base mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-list-check text-blue-600"></i> Danh sách kế hoạch / hoạt động đã tham gia
+          <i class="fa-solid fa-list-check text-blue-600"></i> Chi tiết các tiêu chí
         </h4>
 
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse border border-slate-200">
-            <thead>
-              <tr class="bg-blue-900 text-white text-xs uppercase tracking-wider">
-                <th class="py-3 px-3 border border-slate-300 text-center w-[10%]">STT</th>
-                <th class="py-3 px-3 border border-slate-300 w-[22%]">Tên khoa/Trung tâm/Phòng ban</th>
-                <th class="py-3 px-3 border border-slate-300 w-[38%]">Tên kế hoạch</th>
-                <th class="py-3 px-3 border border-slate-300 text-center w-[12%]">Tiêu chí</th>
-                <th class="py-3 px-3 border border-slate-300 text-center w-[18%]">Ghi chú</th>
-              </tr>
-            </thead>
-            <tbody id="activityTableBody" class="text-sm divide-y divide-slate-200 font-medium">
-              <!-- Render bằng JavaScript -->
-            </tbody>
-          </table>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+          <div class="bg-slate-50 p-3 rounded-xl border text-center">
+            <div class="text-[11px] font-bold text-slate-500">Tiêu chí 1</div>
+            <div class="text-xl font-black text-slate-800 mt-1" id="valTc1">0</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border text-center">
+            <div class="text-[11px] font-bold text-slate-500">Tiêu chí 2</div>
+            <div class="text-xl font-black text-slate-800 mt-1" id="valTc2">0</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border text-center">
+            <div class="text-[11px] font-bold text-slate-500">Tiêu chí 3</div>
+            <div class="text-xl font-black text-slate-800 mt-1" id="valTc3">0</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border text-center">
+            <div class="text-[11px] font-bold text-slate-500">Tiêu chí 4</div>
+            <div class="text-xl font-black text-slate-800 mt-1" id="valTc4">0</div>
+          </div>
+          <div class="bg-slate-50 p-3 rounded-xl border text-center col-span-2 sm:col-span-1">
+            <div class="text-[11px] font-bold text-slate-500">Tiêu chí 5</div>
+            <div class="text-xl font-black text-slate-800 mt-1" id="valTc5">0</div>
+          </div>
         </div>
       </div>
-
     </div>
 
     <!-- Không tìm thấy -->
     <div id="notFound" class="hidden bg-white rounded-2xl shadow-md p-8 text-center">
-      <p class="text-slate-500 text-sm font-medium">Không tìm thấy thông tin sinh viên phù hợp.</p>
+      <p class="text-slate-500 text-sm font-medium">Không tìm thấy sinh viên phù hợp với từ khóa bạn vừa nhập.</p>
     </div>
 
   </main>
 
   <footer class="bg-slate-800 text-slate-400 py-4 text-center text-xs">
-    <p>&copy; 2026 - Trường Đại học Công Thương Thành phố Hồ Chí Minh (HUIT)</p>
+    <p>&copy; 2026 - Đoàn Thanh Niên - Hội Sinh Viên Trường Đại học Công Thương Thành phố Hồ Chí Minh</p>
   </footer>
 
   <script>
@@ -164,29 +166,13 @@
         document.getElementById('studentName').innerText = student.ho_ten;
         document.getElementById('studentMSSV').innerText = student.mssv;
         document.getElementById('studentClass').innerText = student.lop || "Chưa cập nhật";
-        document.getElementById('totalScore').innerText = student.tong_diem || 0;
+        document.getElementById('totalScore').innerText = student.tong_diem;
 
-        // Render dữ liệu vào bảng chi tiết giống ảnh mẫu
-        const tbody = document.getElementById('activityTableBody');
-        tbody.innerHTML = '';
-
-        if (student.hoạt_động && student.hoạt_động.length > 0) {
-          student.hoạt_động.forEach(act => {
-            const tr = document.createElement('tr');
-            tr.className = 'hover:bg-slate-50';
-            tr.innerHTML = `
-              <td class="py-3 px-3 border border-slate-200 text-center font-bold text-slate-700">${act.stt}</td>
-              <td class="py-3 px-3 border border-slate-200 text-slate-700">${act.don_vi}</td>
-              <td class="py-3 px-3 border border-slate-200 text-blue-900 font-semibold">${act.ten_ke_hoach}</td>
-              <td class="py-3 px-3 border border-slate-200 text-center font-bold text-slate-800">${act.tieu_chi}</td>
-              <td class="py-3 px-3 border border-slate-200 text-center text-slate-600">${act.ghi_chu}</td>
-            `;
-            tbody.appendChild(tr);
-          });
-        } else {
-          tbody.innerHTML = `<tr><td colspan="5" class="py-4 text-center text-slate-400">Không có dữ liệu hoạt động chi tiết.</td></tr>`;
-        }
-
+        document.getElementById('valTc1').innerText = student.tc1;
+        document.getElementById('valTc2').innerText = student.tc2;
+        document.getElementById('valTc3').innerText = student.tc3;
+        document.getElementById('valTc4').innerText = student.tc4;
+        document.getElementById('valTc5').innerText = student.tc5;
       } else {
         notFound.classList.remove('hidden');
       }
